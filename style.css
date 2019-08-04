@@ -1,6 +1,41 @@
-.test{
-  border: solid 1px;
-  padding: 20px;
-  margin: -2.5px 0px;
-  display: inline-block;
+.title{
+  font-family: 'Major Mono Display', monospace;
+  font-size: 3em;
+  color: #8C1C13;
+}
+
+.mini-container{
+  text-align: center;
+  display: block;
+}
+
+.button{
+  font-family: sans-serif;
+  background-color: #E7D7C1;
+  color: #8C1C13;
+  padding: 10px;
+  margin: auto 10px 30px 10px;
+  font-size: 1.3em;
+  border-radius: 500px;
+  border: none;
+}
+
+.container{
+  display: block;
+  margin: 0 auto;
+  max-width: 560px;
+  max-height: 560px;
+  display: grid;
+  grid-template-rows:repeat(16, minmax(auto, 35px));
+  grid-template-columns: repeat(16, 1fr);
+  border: solid 5px #BF4342;
+}
+
+.cell{
+  border: solid 1px #BF4342;
+  padding: 1px;
+}
+
+.blacked {
+  background-color: black;
 }
