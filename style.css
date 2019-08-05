@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+
 .title{
   font-family: 'Major Mono Display', monospace;
   font-size: 3em;
@@ -21,14 +26,13 @@
 }
 
 .container{
-  display: block;
-  margin: 0 auto;
-  max-width: 560px;
-  max-height: 560px;
   display: grid;
-  grid-template-rows:repeat(16, minmax(auto, 35px));
-  grid-template-columns: repeat(16, 1fr);
+  margin: 0 auto;
   border: solid 5px #BF4342;
+  width: 70vh;
+  height: 70vh;
+  grid-template-columns: repeat(16, minmax(auto, 1fr));
+  grid-template-rows: repeat(16, minmax(1fr, auto));
 }
 
 .cell{

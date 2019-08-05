@@ -27,6 +27,30 @@ let makePage = () => {
 }
 makePage();
 
+
+let makeNewPage = () => {
+  document.getElementsByClassName('button')[1].addEventListener("click", function(){
+  let userNumber = prompt("Combien de chiffres ami ?");
+  userNumber -= 0;
+  let container = document.querySelector(".container");
+  container.innerHTML = "";
+  for (var i = 0; i < (userNumber*userNumber) ; i++) {
+    let cell = document.createElement("div");
+    cell.classList.add("cell");
+    container.appendChild(cell)
+    }
+    container.style.gridTemplateRows =  "repeat(" + userNumber + ", 1fr)";
+    container.style.gridTemplateColumns =  "repeat(" + userNumber + ", 1fr)";
+     let allCells = document.getElementsByClassName('cell');
+     Array.from(allCells).forEach(function(cell) {
+       cell.addEventListener("mouseover", function(){
+         cell.style.backgroundColor = "black";
+       })
+     })
+   })
+}
+makeNewPage();
+
 let makeBlackCells = () => {
   let allCells = document.getElementsByClassName('cell');
   Array.from(allCells).forEach(function(cell) {
