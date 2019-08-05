@@ -17,7 +17,7 @@ let makePage = () => {
   document.getElementsByClassName('button')[0].textContent = "Reset the Grid";
   document.getElementsByClassName('button')[1].textContent = "Change the Size";
   document.getElementsByClassName('button')[2].textContent = "Random Colours";
-  document.getElementsByClassName('button')[3].textContent = "Shades of Black";
+  document.getElementsByClassName('button')[3].textContent = "Shades of Red";
   for (var i = 0; i < 256; i++) {
     let container = document.querySelector(".container");
     let cell = document.createElement("div");
@@ -27,23 +27,23 @@ let makePage = () => {
 }
 makePage();
 
-let colorCells = () => {
+let makeBlackCells = () => {
   let allCells = document.getElementsByClassName('cell');
   Array.from(allCells).forEach(function(cell) {
     cell.addEventListener("mouseover", function(){
-      cell.classList.add("blacked");
+      cell.style.backgroundColor = "black";
     })
   })
 }
-colorCells()
+makeBlackCells()
 
 let resetGrid = () => {
   document.getElementsByClassName('button')[0].addEventListener("click", function(){
     let allCells = document.getElementsByClassName('cell');
     Array.from(allCells).forEach(function(cell) {
       cell.style.backgroundColor = "white";
-      cell.classList.remove("blacked", "colored");
     })
+    makeBlackCells();
   })
 }
 resetGrid();
@@ -51,17 +51,30 @@ resetGrid();
 let colorByRandom = () => {
   let getRandomNumber = (number) => Math.floor(Math.random() * Math.floor(number));
   document.getElementsByClassName('button')[2].addEventListener("click", function(){
-    resetGrid();
     let allCells = document.getElementsByClassName('cell');
     Array.from(allCells).forEach(function(cell) {
+      cell.style.backgroundColor = "white";
       cell.addEventListener("mouseover", function(){
-        cell.classList.add("colored");
-      })
-    let allColoredCells = document.getElementsByClassName('colored');
-    Array.from(allColoredCells).forEach(function(cell){
       cell.style.backgroundColor = "rgb(" + getRandomNumber(255) + ", " + getRandomNumber(255) + ", " + getRandomNumber(255) + ")";
-    })
+      })
     })
   })
 }
 colorByRandom();
+
+
+let makeShadeCell = () => {
+  document.getElementsByClassName('button')[3].addEventListener("click", function(){
+    let allCells = document.getElementsByClassName('cell');
+    Array.from(allCells).forEach(function(cell) {
+      cell.style.backgroundColor = "white";
+      cell.addEventListener("mouseover", function(){
+        cell.style.backgroundColor =  "#8C1C13";
+        let numberOpacity = cell.style.opacity - 0;
+        numberOpacity += 0.1;
+        cell.style.opacity = numberOpacity;
+      })
+    })
+  })
+}
+makeShadeCell();
